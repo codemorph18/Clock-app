@@ -26,8 +26,6 @@ function displayTime(){
     sec.style.transform = `rotate(${sRotation}deg)`;
 
     // for the digital clock system
-   
-
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     let ampm = hh >= 12 ? 'PM' : 'AM';
@@ -44,4 +42,5 @@ function displayTime(){
     digitalDay.textContent = days[day]; //this shows the day
 
 }
+
 setInterval(displayTime, 1000);
