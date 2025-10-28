@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: aliceblue;
+    /* text-shadow: black 0 0 5px; */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: white; */
+    background: url('krinshna.png') no-repeat center center/cover; 
+    --date-clr: orange;
+}
+
+.container {
+    position: relative;
+    flex-direction: column;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px #1900ff, 0 0 40px #00fa21, 0 0 60px  #ff0101;
+    /* box-shadow: 0 0 20px rgb(0, 80, 254), 0 0 40px rgba(0, 13, 255, 0.6), 0 0 60px rgba(0, 42, 254, 0.518); */
+    /* box-shadow: 12px 12px 20px black inset,
+        -10px -10px 10px black inset; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.clock span {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+}
+
+.clock span b {
+    transform: rotate(calc(-30deg * var(--i)));
+    color: aliceblue;
+    /* text-shadow: 0 0 20px rgba(254, 0, 207, 0.8), 0 0 40px rgba(238, 0, 255, 0.6), 0 0 60px rgba(161, 0, 254, 0.8); */
+    display: inline-block;
+    font-size: 20px;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.hand {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hand i {
+    position: absolute;
+    background-color: var(--clr);
+    width: var(--a);
+    height: var(--h);
+    border-radius: 8px;
+    /* box-shadow: 0 0 20px var(--clr), 0 0 40px var(--clr), 0 0 60px var(--clr); */
+}
+
+.digital {
+    /* Use properties to create a box for the digital clock */
+    align-items: flex-start;
+    width: 260px;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 0 20px rgba(161, 0, 254, 0.8), 0 0 40px rgba(149, 0, 255, 0.6), 0 0 60px rgba(161, 0, 254, 0.8);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 10px; 
+    font-size: 2rem;
+    padding: 10px 20px;
+    margin-left: 30px;
+}
+
+#time div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--clr);
+}
+
+#time div:nth-child(1)::after{
+    content: ':';
+    position: relative;
+    right: -4px;
+    bottom: 2px;
+}
+
+#time div:nth-child(2)::after{
+    content: ':';
+    position: relative;
+    right: -4px;
+    bottom: 2px;
+}
+
+#time div:nth-child(4) {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+
+#time div:last-child {
+    font-size: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    color: aqua;
+    position: absolute;
+    top: 2px;
+    bottom: 10px;
+    right: 40px;
+}
+
+#time div:nth-child(2)::after
+{
+    animation: animate 1s steps(1) infinite;
+}
+
+/* to make the : blink */
+@keyframes animate{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+}
